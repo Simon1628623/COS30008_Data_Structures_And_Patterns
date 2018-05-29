@@ -1,0 +1,62 @@
+i++
+switch (fState)
+{
+case BEFORE:
+	if(fCurrent != rightEnd())
+	{
+		fState = DATA;
+	}
+	if(fCurrent == rightEnd())
+	{
+		fState = AFTER;
+	}
+	break;
+case DATA:
+	if(fCurrent == rightEnd())
+	{
+		fState = AFTER;
+	}
+	if(fCurrent != rightEnd())
+	{
+		fState = DATA;
+	}
+	break;
+case AFTER:
+	if(fCurrent == rightEnd())
+	{
+		fState = AFTER;
+	}
+	break;
+}
+
+i--
+
+switch (fState)
+{
+case BEFORE:
+	if(fCurrent == leftEnd())
+	{
+		fState = BEFORE;
+	}
+   break;
+case DATA:
+	if(fCurrent == leftEnd())
+	{
+		fState = BEFORE;
+	}
+	if(fCurrent != leftEnd())
+	{
+		fState = DATA;
+	}
+		break;
+case AFTER:
+	if(fCurrent == leftEnd())
+	{
+		fState = BEFORE;
+	}
+	if(fCurrent != leftEnd())
+	{
+		fState = DATA;
+	}
+	break;
+}
